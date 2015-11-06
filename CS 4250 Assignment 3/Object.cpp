@@ -299,6 +299,8 @@ namespace Bagnall
 
 			changedFlags = 0;
 		}
+		else
+			std::cout << "bakow\n";
 	}
 
 	void Object::updateChildrenParentTransforms()

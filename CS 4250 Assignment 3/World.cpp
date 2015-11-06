@@ -84,6 +84,9 @@ namespace Bagnall
 		createTrack(trackZFactor, Game::Vertices.size(), 0);
 
 		blockOffTilesUnderTrack();
+
+		Object::Update();
+		track->Update();
 	}
 
 	World::~World()
@@ -104,8 +107,8 @@ namespace Bagnall
 
 	void World::Update()
 	{
-		Object::Update();
-		track->Update();
+		//Object::Update();
+		//track->Update();
 	}
 
 	void World::Draw() const

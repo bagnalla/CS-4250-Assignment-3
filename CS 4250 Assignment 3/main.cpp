@@ -52,6 +52,7 @@ void createWorld()
 		{
 			TrashCan *trashCan = new TrashCan();
 			trashCan->SetRandomLocationInSegment((*it).second);
+			trashCan->Update();
 		}
 	}
 
@@ -136,8 +137,8 @@ void init(void)
 	//createWorld();
 	createEverything(true);
 
-	auto sdfgdg = Game::Vertices;
-	//auto dfgdfg = Game::Normals;
+	/*auto sdfgdg = Game::Vertices;
+	auto dfgdfg = Game::Normals;*/
 
 	// Create a vertex array object
 	glGenVertexArrays(1, &vao);
@@ -255,6 +256,10 @@ void init(void)
 	Game::DebugMode = false;
 
 	//glutFullScreen();
+
+	auto error = glGetError();
+	if (error != GL_NO_ERROR)
+		std::cout << "WTF\n";
 }
 
 void drawEverything(bool select)
@@ -302,6 +307,7 @@ extern "C" void myReshape(int w, int h)
 
 	// update projection to match aspect ratio of window
 	Game::Projection = Util::Perspective(45.0, w / static_cast<float>(h), 1.0, Game::ViewDistance);
+	auto dfgdfg = Game::Projection;
 	glUniformMatrix4fv(Game::ProjectionLoc, 1, GL_TRUE, Game::Projection);
 
 	glutPostRedisplay();
@@ -327,11 +333,11 @@ extern "C" void idle(void)
 	for (std::vector<Person*>::iterator it = Person::People.begin(); it != Person::People.end(); it++)
 		(*it)->Update();
 
-	for (std::vector<Bush*>::iterator it = Bush::Bushes.begin(); it != Bush::Bushes.end(); it++)
+	/*for (std::vector<Bush*>::iterator it = Bush::Bushes.begin(); it != Bush::Bushes.end(); it++)
 		(*it)->Update();
 
 	for (std::vector<TrashCan*>::iterator it = TrashCan::TrashCans.begin(); it != TrashCan::TrashCans.end(); it++)
-		(*it)->Update();
+		(*it)->Update();*/
 
 	sn->Update();
 

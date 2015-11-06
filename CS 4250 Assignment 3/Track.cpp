@@ -27,7 +27,7 @@ namespace Bagnall
 
 	void Track::Update()
 	{
-		Object::Update();
+		//Object::Update();
 	}
 
 	void Track::DrawWithHierarchicalTransform() const
@@ -126,8 +126,8 @@ namespace Bagnall
 		{
 			if (i < path.size() - 1)
 				curvyPathNormals.push_back(Angel::normalize(Util::ChopW(Angel::cross(topInside[i + 1] - topInside[i], topOutsideCurvy[i] - topInside[i]))));
-			else
-				curvyPathNormals.push_back(Angel::normalize(Util::ChopW(Angel::cross(topInside[0] - topInside[i], topOutsideCurvy[i] - topInside[i]))));
+			/*else
+				curvyPathNormals.push_back(Angel::normalize(Util::ChopW(Angel::cross(topInside[0] - topInside[i], topOutsideCurvy[i] - topInside[i]))));*/
 		}
 
 		for (int i = 0; i < path.size(); i += VERTEX_REDUCTION_FACTOR)

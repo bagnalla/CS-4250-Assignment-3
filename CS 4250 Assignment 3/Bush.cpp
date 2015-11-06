@@ -60,6 +60,8 @@ namespace Bagnall
 		RandomizeLocation();
 
 		Bushes.push_back(this);
+
+		Update();
 	}
 
 	Bush::~Bush()
